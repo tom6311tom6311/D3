@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>Word Cloud</title>
+    <script src="./d3.js" charset="utf-8"></script>
+    <script src="./d3.layout.cloud.js" charset="utf-8"></script>
+    <script src="./d3.wordcloud.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div id='cloud'></div>
+    <script>
+      d3.csv("./text-cloud.csv", function(data) {
+        //console.log(data);
+        d3.wordcloud()
+          .size([screen.availWidth, screen.availHeight])
+          .selector('#cloud')
+          .words(data)
+          .start();
+      });
+    </script>
+  </body>
+</html>
